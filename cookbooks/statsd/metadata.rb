@@ -7,3 +7,4 @@ long_description 'Installs/Configures statsd'
 version '0.1.0'
 
 depends 'graphite'
+depends 'grafana'

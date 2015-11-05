@@ -121,12 +121,6 @@ except Exception,err:
   PYTHON
 end
 
-file '/opt/graphite/conf/graphite.wsgi.example' do
-	action :delete
-end
-
-file 'graphTemplates.conf.example' do
-	action :delete
-end
-
 include_recipe 'graphite::uwsgi'
+
+include_recipe 'grafana::default'
