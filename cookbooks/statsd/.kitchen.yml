@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver_config:
+      network:
+      - ["forwarded_port", {guest: 80, host: 8888}]
+      - ["forwarded_port", {guest: 8080, host: 8080}]
+      - ["forwarded_port", {guest: 8125, host: 8125}]
+suites:
+  - name: default
+    run_list:
+      - recipe[statsd::default]
+    attributes:
